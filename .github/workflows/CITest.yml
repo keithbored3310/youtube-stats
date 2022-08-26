@@ -32,4 +32,10 @@ jobs:
     - run: npm install
     - run: npm run build --if-present
 
-
+    - name: docker build and push of Youtube-Stats
+      uses: mr-smithers-excellent/docker-build-push@v5
+      with:
+        image: keithchow3310/appp4
+        registry: docker.io
+        username: ${{ secrets.DOCKER_USERNAME }}
+        password: ${{ secrets.DOCKER_PASSWORD }}
