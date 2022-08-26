@@ -26,13 +26,10 @@ jobs:
     - name: Checkout of the Development
       uses: actions/checkout@v3
       
-    - name: Use Node.js ${{ matrix.node-version }}
+    - name: Install Node.js
       uses: actions/setup-node@v3
-      with:
-        node-version: ${{ matrix.node-version }}
-        cache: 'npm' # not supported but stay for create broken build
-    - run: npm ci
-    # not supported
+    
+    - run: npm install
     - run: npm run build --if-present
-    - run: npm test
-    #  not available, no testing file inside
+
+
